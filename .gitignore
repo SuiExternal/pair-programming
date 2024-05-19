@@ -1,0 +1,5 @@
+.DS_Store
+rust/target
+c++/build
+.vscode
+__pycache__
