@@ -9,7 +9,7 @@ public:
     virtual std::optional<std::string> get(const std::string& key) const = 0;
     virtual void put(const std::string& key, const std::string& value) = 0;
 
-    std::vector<std::optional<std::string>> multi_get(const std::vector<std::string>& keys) const {
+    virtual std::vector<std::optional<std::string>> multi_get(const std::vector<std::string>& keys) const {
         std::vector<std::optional<std::string>> results;
         for (const auto& key : keys) {
             results.push_back(get(key));
@@ -17,7 +17,7 @@ public:
         return results;
     }
 
-    void multi_put(const std::vector<std::pair<std::string, std::string>>& kv_pairs) {
+    virtual void multi_put(const std::vector<std::pair<std::string, std::string>>& kv_pairs) {
         for (const auto& [key, value] : kv_pairs) {
             put(key, value);
         }
